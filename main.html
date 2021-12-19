@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<head>
+    <title>Grade Summary</title>
+    <link rel="stylesheet" href="site.css">
+</head>
+<body>
+    <h4>Grade Summary App</h4>
+    <h1>Enter Grades</h1>
+
+    <div class="form-layout">
+        <div class="form-element">
+            <input id="grade" />
+        </div>
+        <div class="form-element">
+            <input type="button" onclick="add()" value="Add" />
+        </div>
+    </div>
+    <div class="form-layout">
+        <button id="showSummary" onclick="showSummary()">Show Summary</button>
+    </div>
+    <div class="form-layout">
+        <button id="clear" onclick="clear()">Clear</button>
+    </div>
+
+    <script type="application/javascript">
+        const grades = [];
+
+        function add() {
+            let grade = document.getElementById("grade").value;
+            grades.push(grade);
+            document.getElementById("grade").value="";
+            document.getElementById("grade").focus();
+        }
+
+        function clear() {
+            grades = [];
+        }
+
+        function showSummary() {
+            localStorage.setItem("gradeArray", grades);
+            window.open("summary.html", "_self");
+        }
+
+    </script>
+</body>

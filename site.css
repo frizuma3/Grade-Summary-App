@@ -1,0 +1,65 @@
+body { 
+    text-align: center;
+    background-color: black;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+input[type="button"] {
+    background-color: black;
+    color: white;
+    border-color: white;
+    height: 3em;
+    width: 8em;
+    
+}
+button {
+    background-color: black;
+    color: white;
+    border-color: white;
+    height: 3em;
+    width: 12em;
+    
+    
+}
+input {
+    height: 2.5em;
+    width: 3em;
+
+}
+.form-element {
+    display: inline;
+}
+.form-element input {
+    margin: 20px 0;
+}
+.form-element input[type="button"] {
+    margin: 20px;
+}
+.form-layout {
+    margin: 30px 0;
+}
+#container {
+    display: flex;
+    flex-direction:column;
+    gap: 20px;
+    align-items: center;
+    
+    
+}
+.display-row {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    max-width: 500px;
+   
+    
+}
+.summary-box {
+    border-style: solid;
+    border-width: 2px;
+    border-color: white;
+    width: 60px;
+    height: 25px;
+        
+}

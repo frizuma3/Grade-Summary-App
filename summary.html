@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<head>
+    <title>Grade Summary</title>
+    <link rel="stylesheet" href="site.css">
+</head>
+<body>
+    <h4>Grade Summary App</h4>
+    <h1>Summary</h1>
+
+    <div id="container">
+        <div class="display-row">
+            <div>
+                <label>Number of Marks</label>
+            </div>
+            <div id="numMarks" class="summary-box"></div>
+        </div>
+        <div class="display-row">
+            <div>
+                <label>Total Marks</label>
+            </div>
+            <div id="totalMarks" class="summary-box"></div>
+        </div>
+        <div class="display-row">
+            <div>
+                <label>Average Mark</label>
+            </div>
+            <div id="averageMarks" class="summary-box"></div>
+        </div>
+        <div class="display-row">
+            <div>
+                <label>Highest</label>
+            </div>
+            <div id="highestMark" class="summary-box"></div>
+        </div>
+        <div class="display-row">
+            <div>
+                <label>Lowest</label>
+            </div>
+            <div id="lowestMark" class="summary-box"></div>
+        </div>
+    </div><br>
+    <div>
+        <button onclick="mainPage()">Main Page</button>
+    </div>
+
+    <script type="application/javascript">
+        const gradeString = localStorage.getItem("gradeArray");
+        const gradeArray = gradeString.split(',');
+
+        const numMarks = gradeArray.length;
+        document.getElementById("numMarks").innerHTML = numMarks;
+
+        const lowestMark = calcLowest();
+        document.getElementById("lowestMark").innerHTML = lowestMark;
+
+        function calcLowest() {
+            let lowest=null;
+            for (i = 0; i < gradeArray.length; i++) {
+                if (lowest == null) {
+                    lowest = parseInt(gradeArray[i]);
+                } else {
+                    let thisMark = parseInt(gradeArray[i]);
+                    if (thisMark < lowest) {
+                        lowest = thisMark;
+                    }
+                }
+            }
+            return lowest;
+        }
+
+        const highestMark = calcHighest();
+        document.getElementById("highestMark").innerHTML = highestMark;
+
+        function calcHighest() {
+            let highest=null;
+            for (i = 0; i < gradeArray.length; i++) {
+                if (highest == null) {
+                    highest = parseInt(gradeArray[i]);
+                } else {
+                    let thisMark = parseInt(gradeArray[i]);
+                    if (thisMark > highest) {
+                        highest = thisMark;
+                    }
+                }
+            }
+            return highest;
+
+        }
+
+        
+        
+          
+        const totalMarks = calculateTotalMarks();
+        document.getElementById("totalMarks").innerHTML =totalMarks;
+
+       
+
+        function calculateTotalMarks() {
+            let totalMarks=0; 
+            for (i = 0; i < gradeArray.length; i++)
+            {
+               
+             totalMarks+=parseInt(gradeArray[i]);
+                
+            }
+            return totalMarks;
+            
+           
+        }
+
+        
+        const averageMarks = calculateAverageMark();
+        document.getElementById("averageMarks").innerHTML = averageMarks;
+
+      function calculateAverageMark() {
+
+        let averageMarks=0; let totalMarks=0; 
+            for (i = 0; i < gradeArray.length; i++)
+            {
+            averageMarks=totalMarks+=parseInt(gradeArray[i])/gradeArray.length;
+            }
+            return averageMarks;
+    
+        }
+
+       
+        
+
+
+        function mainPage() {
+            window.open("main.html", "_self");
+        }
+
+    </script>
+</body>
